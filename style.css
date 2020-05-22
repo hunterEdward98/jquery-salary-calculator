@@ -11,14 +11,31 @@ body{
     width: 90%;
     margin-left:5%;
     margin-right:5%;
-    background-color: c0c0c0;
+    background-color: #c0c0c0;
     color:navy;
     height:90%;
 }
 header{
+    padding-top:1%;
+    padding-bottom:1%;
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
     text-align: center;
-    background-color: #555555;
+    background-color: #333;
     color:orangered;
     font-size:26px;
     font-weight: bold;
+}
+.deleteAll{
+    width:100%;
+    background-color: navy;
+    color:gold;
+}
+table{
+    border-collapse: collapse;
+}
+th{
+    width:10%;
+    border: 1px solid black;
 }
