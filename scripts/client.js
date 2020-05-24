@@ -1,9 +1,8 @@
 $(document).ready(setUp);
 let totalSalary = 0;
-function setUp(){
+function setUp() {
 
-debugger;
-    $("#submitEmployeeBtn").on("click", function(){
+    $("#submitEmployeeBtn").on("click", function () {
         let tr = $('<tr></tr>');
         tr.append(`<th>${$('#fNameIn').val()}</th>`);
         $('#fNameIn').val('');
@@ -14,16 +13,27 @@ debugger;
         tr.append(`<th>${$('#jTitleIn').val()}</th>`);
         $('#jTitleIn').val('');
         tr.append(`<th>${$('#salaryIn').val()}</th>`);
-        totalSalary+=$('#salaryIn').val();
+        totalSalary += Number($('#salaryIn').val());
         $('#salaryIn').val('');
         let delBtn = $(`<th class = ><button class = "delete">Delete</button></th>`);
         tr.append(delBtn);
         console.log(tr);
         $("tbody").append(tr);
-        $(`.delete`).on('click',function(event){
+        $(`.delete`).on('click', function (event) {
             let rmSal = $(this).parent().siblings(':last').text();
-            totalSalary-=rmSal;
+            totalSalary -= rmSal;
             $(this).parent().parent().remove();
+            if(totalSalary/12 <= 20000){
+                $(`#total`).css(`background-color`,`#c0c0c0`);
+            }$('#total').empty();
+            $('#total').append('Total Monthly Cost: '+totalSalary/12);
         });
+        if (totalSalary/12 > 20000) {
+            $(`#total`).css('background-color', 'red');
+        }
+        $('#total').empty();
+        $('#total').append('Total Monthly Cost: '+totalSalary/12);
     });
+    $(`.content`).append(`<h3 id = 'total'>Total Monthly Cost: ${totalSalary/12}<h3>`);
+
 }
